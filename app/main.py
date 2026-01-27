@@ -14,7 +14,7 @@ def startup():
 @app.get("/")
 def home():
     return {"status": "ok", "message": "Music School backend running"}
-
+#
 @app.get("/students")
 def students(filters: StudentFilter = Depends()):
     return get_students(filters)

@@ -1,4 +1,5 @@
 # app/services/students/service.py
+from psycopg2.extras import RealDictCursor
 from app.services.students.schemas import StudentFilter, StudentLessonFilter
 from app.db import get_connection
 from app.services.students.queries import (STUDENTS_WITHOUT_LESSONS, BASE_STUDENTS_QUERY,
@@ -6,7 +7,7 @@ from app.services.students.queries import (STUDENTS_WITHOUT_LESSONS, BASE_STUDEN
 
 def get_students_without_lessons():
     with get_connection() as conn:
-        with conn.cursor() as cur:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(STUDENTS_WITHOUT_LESSONS)
             return cur.fetchall()
 
@@ -23,7 +24,7 @@ def get_students(filters: StudentFilter):
         params["last_name"] = f"%{filters.last_name}%"
 
     with get_connection() as conn:
-        with conn.cursor() as cur:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(sql, params)
             return cur.fetchall()
 
@@ -56,6 +57,6 @@ def get_student_lessons(filters: StudentLessonFilter):
         sql += " WHERE " + " AND ".join(where_clauses)
 
     with get_connection() as conn:
-        with conn.cursor() as cur:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(sql, params)
             return cur.fetchall()

@@ -11,4 +11,4 @@ def debug_students(**kwargs):
     print(f"Total: {len(result)}\n")
 
 if __name__ == "__main__":
-    debug_students(last_name="Джексон", date_from = '2025-10-01', date_to = '2025-10-20')
+    debug_students(last_name="Джексон", date_from = '2025-09-01', date_to = '2025-12-20')
