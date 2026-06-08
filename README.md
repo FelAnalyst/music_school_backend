@@ -25,7 +25,7 @@ Python automation tool built for a music school client. Runs once a month and se
 The email looks like this:
 
 ![Email report — reviews section](https://github.com/FelAnalyst/music_school_backend/blob/master/screenshots/music%20school-1.jpg)
-![Email report — pricing section](screenshots/email-pricing.png)
+![Email report — pricing section](https://github.com/FelAnalyst/music_school_backend/blob/master/screenshots/music%20school-2.jpg)
 
 ## Stack
 
